@@ -6,15 +6,58 @@
 
 <body>
   <h1>Jennifer Powell</h1>
-  Resume 
-  Instagram
-  Facebook
+  <h2>Resume</h2>
+  <h3><a href="https://instagram.com/jenniferpow.ll">Instagram</a> </h3>
+  <a2 id="facebook-link">Facebook</a2>
   LinkedIn
+  <div id="environment">
+    <div id="box"></div>
+  </div>
+
 </body>
 
 <style>
-h1 {
-  color: blueviolet;
+  body {
+  color: palevioletred;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+h1 {
+  color: blueviolet;  
+}
+a{font-family: 'Courier New', Courier, monospace;}
+#facebook-link {
+  color: green;
+}
+#environment {
+  background-color: lightgray;
+  height: 400px;
+  width: 400px;
+}
+#box {background-color: black;
+height: 20px;
+width: 20px;
+position: relative;}
 </style>
+
+<script>
+function $(str) {
+  return document.getElementById(str)
+}
+function jump() {
+  const bs = $("box").style
+  const px = bs.top || "0px"
+  $("box").style.top = parseFloat(px) - 30 + "px"
+}
+function fall() {
+  const bs = $("box").style
+  const px = bs.top || "0px"
+  $("box").style.top = parseFloat(px) + 1 + "px"
+}
+document.onkeypress = function (e) {
+    e = e || window.event;
+    jump()
+    // use e.keyCode
+}
+setInterval(() => {fall()}, 41)
+</script>
 </html>
